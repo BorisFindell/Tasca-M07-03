@@ -33,13 +33,13 @@
 })()
 
 
+let nombre;
+let correu;
+
 document.getElementById('enviar').addEventListener('click', function(){
   enviar()
 })
 function enviar() {
-
-      let nombre;
-      let correu;
       nombre = document.getElementById('nom').value
       console.log(nombre);
       correu = document.getElementById('email').value
