@@ -17,6 +17,7 @@ document.getElementById('loginCheck').addEventListener('click', function(){
   loginCheck()
 })
 
+
 ///////////FUNCIÓ ENVIAR DEL FORMULARI///////////
 
 function enviar() {
@@ -65,6 +66,7 @@ function enviar() {
       }
       else{
         pass.classList.add("is-invalid");
+        pass.classList.remove("is-valid");
         console.log('nope pass');
         completo = false;
       }
@@ -86,9 +88,12 @@ function enviar() {
         correu = document.getElementById('email').value
         password = document.getElementById('pass').value
         provincia = document.getElementById('prov').value
+        document.getElementById("modalCosReg").innerHTML = "<pre>" + "\n" + 'REGISTRO Exitoso' + "\n" + "\n" + 'Correu: ' + correu + "\n" + 'Password: ' + password + "</pre>";
+        }
         
+      else {
+        document.getElementById("modalCosReg").innerHTML = "<pre>" + "\n" + 'Hay errores en el registro.' + "\n" + 'Corrígelos e inténtalo nuevamente' + "</pre>";
       }
-
 
 }     
 
@@ -99,23 +104,19 @@ function loginCheck() {
 //EMAIL LOGIN//
     if (document.getElementById('emailLog').value != '' && document.getElementById('emailLog').value == correu) {
       emailCorrecto = true;
-      console.log('Hola usuari')
     }
     else{
       emailCorrecto = false;
-      console.log('nope usuari');
     }
 
 //PASSWORD LOGIN//
 
     if (document.getElementById('passLog').value != '' && document.getElementById('passLog').value == password) {
       passCorrect = true;
-      console.log('Hola pass')
 
     }
     else{
       passCorrect = false;
-      console.log('nope pass');
     }
 
     if (emailCorrecto == true && passCorrect == true) {
@@ -125,7 +126,3 @@ function loginCheck() {
       document.getElementById("modalCosLog").innerHTML = 'Login incorrecto'
     }
 }
-
-//if emailCorrecto == true i passCorrecto == true
-  //Muestra mensaje exitoso en modal
-  //else Muestra mensaje Fail
